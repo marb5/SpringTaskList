@@ -32,6 +32,7 @@ class TaskController {
     //mapowanie zapytan informuje, ze ta metoda ma zastapic metode z repozytorium
     //parametry informuja o wykorzystywanej metodzie i sciezce
     //dzieki temu mozemy dopilnowac, co zostanie wyslane w odpowiedzi
+    //mozemy takze operowac na wyszukanych danych
     //repozytorium owija dane w hateoas, tutaj to pomijamy
     @RequestMapping(method = RequestMethod.GET, path = "/tasks")
     //@GetMapping(value = "/tasks") //RequestMapping dla metody GET
