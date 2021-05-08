@@ -245,8 +245,8 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 204\", function () {",
-							"    pm.response.to.have.status(204);",
+							"pm.test(\"Status code is 205\", function () {",
+							"    pm.response.to.have.status(205);",
 							"});"
 						],
 						"type": "text/javascript"
