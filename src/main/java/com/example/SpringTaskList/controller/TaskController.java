@@ -1,9 +1,15 @@
 package com.example.SpringTaskList.controller;
 
+import com.example.SpringTaskList.model.Task;
 import com.example.SpringTaskList.model.TaskRepository;
+import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.rest.webmvc.RepositoryRestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  *
@@ -20,5 +26,17 @@ class TaskController {
     
     TaskController(final TaskRepository repository) {
         this.repository = repository;
+    }
+    
+    //zwraca obiekt z wszystkimi taskami
+    //mapowanie zapytan informuje, ze ta metoda ma zastapic metode z repozytorium
+    //parametry informuja o wykorzystywanej metodzie i sciezce
+    //dzieki temu mozemy dopilnowac, co zostanie wyslane w odpowiedzi
+    //repozytorium owija dane w hateoas, tutaj to pomijamy
+    @RequestMapping(method = RequestMethod.GET, path = "/tasks")
+    //@GetMapping(value = "/tasks") //RequestMapping dla metody GET
+    ResponseEntity<List<Task>> getAllTasks() {
+        logger.warn("Here are your tasks!");
+        return ResponseEntity.ok(repository.findAll());
     }
 }
